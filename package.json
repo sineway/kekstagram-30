@@ -1,0 +1,21 @@
+{
+  "name": "kekstagram",
+  "version": "30.0.0",
+  "private": true,
+  "description": "Проект «Кекстаграм» от HTML Academy",
+
+  "devDependencies": {
+    "eslint": "8.48.0",
+    "eslint-config-htmlacademy": "9.1.1",
+    "vite": "4.4.9"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "vite --port 3000 --open",
+    "lint": "eslint js/"
+  },
+  "engines": {
+    "node": "18",
+    "npm": "9"
+  }
+}
