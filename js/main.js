@@ -9,6 +9,18 @@ const getRandomInteger = (min, max) => {
   return Math.round(fraction);
 };
 
+const createCommentsData = (itemCount = 0) => {
+  const messages = ['Комментарий 1', 'Комментарий 2', 'Комментарий 3'];
+  const names = ['Имя 1', 'Имя 2', 'Имя 3'];
+
+  return new Array(itemCount).fill(1).map((start, index) => ({
+    id: start + index,
+    avatar: `img/avatar-${getRandomInteger(1, 6)}.svg`,
+    message: getRandomItem(messages),
+    name: getRandomItem(names)
+  }));
+};
+
 const createPicturesData = (itemCount = 25) => {
   const descriptions = ['Описание 1', 'Описание 2', 'Описание 3'];
 
@@ -21,4 +33,4 @@ const createPicturesData = (itemCount = 25) => {
   }));
 };
 
-void (getRandomItem, getRandomInteger, createPicturesData);
+void (getRandomItem, getRandomInteger, createPicturesData, createCommentsData);
