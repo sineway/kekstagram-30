@@ -6,5 +6,9 @@ const isPalindrome = (sequence) => {
   return text === reversedText;
 };
 
-void (fitsLength, isPalindrome);
+const parseDigits = (sequence) => {
+  const digits = String(sequence).replace(/[^0-9]+/g, '');
+  return digits ? Number(digits) : NaN;
+};
 
+void (fitsLength, isPalindrome, parseDigits);
