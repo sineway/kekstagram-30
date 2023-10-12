@@ -9,4 +9,16 @@ const getRandomInteger = (min, max) => {
   return Math.round(fraction);
 };
 
-void (getRandomItem, getRandomInteger);
+const createPicturesData = (itemCount = 25) => {
+  const descriptions = ['Описание 1', 'Описание 2', 'Описание 3'];
+
+  return new Array(itemCount).fill(1).map((start, index) => ({
+    id: start + index,
+    url: `photos/${start + index}.jpg`,
+    description: getRandomItem(descriptions),
+    likes: getRandomInteger(15, 200),
+    comments: [] // TODO: createCommentsData
+  }));
+};
+
+void (getRandomItem, getRandomInteger, createPicturesData);
