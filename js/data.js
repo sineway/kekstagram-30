@@ -33,4 +33,4 @@ const createPicturesData = (itemCount = 25) => {
   }));
 };
 
-void (getRandomItem, getRandomInteger, createPicturesData, createCommentsData);
+export {createPicturesData};
