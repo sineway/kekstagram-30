@@ -11,4 +11,9 @@ const parseDigits = (sequence) => {
   return digits ? Number(digits) : NaN;
 };
 
-void (fitsLength, isPalindrome, parseDigits);
+const parseMinutes = (time) => {
+  const [hours, minutes] = time.split(':').map(Number);
+  return hours * 60 + minutes;
+};
+
+void (fitsLength, isPalindrome, parseDigits, parseMinutes);
