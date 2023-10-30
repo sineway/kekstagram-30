@@ -3,14 +3,22 @@ import {renderComments} from './comments.js';
 const popup = document.querySelector('.big-picture');
 const cancelButton = document.querySelector('.big-picture__cancel');
 
+const onDocumentKeydown = (event) => {
+  if (event.key.startsWith('Esc')) {
+    cancelButton.click();
+  }
+};
+
 const showPopup = () => {
   popup.classList.remove('hidden');
   document.body.classList.add('modal-open');
+  document.addEventListener('keydown', onDocumentKeydown);
 };
 
 const hidePopup = () => {
   popup.classList.add('hidden');
   document.body.classList.remove('modal-open');
+  document.removeEventListener('keydown', onDocumentKeydown);
 };
 
 const renderPopup = ({url, description, likes, comments}) => {
