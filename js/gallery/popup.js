@@ -11,6 +11,7 @@ const onDocumentKeydown = (event) => {
 
 const showPopup = () => {
   popup.classList.remove('hidden');
+  popup.scroll(0, 0);
   document.body.classList.add('modal-open');
   document.addEventListener('keydown', onDocumentKeydown);
 };
