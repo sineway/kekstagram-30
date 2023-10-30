@@ -1,5 +1,7 @@
 const container = document.querySelector('.social__comments');
 const template = document.querySelector('.social__comment');
+const shownCounter = document.querySelector('.social__comment-shown-count');
+const totalCounter = document.querySelector('.social__comment-total-count');
 
 const createComments = (commentsData) => commentsData.map((properties) => {
   const {avatar, message, name} = properties;
@@ -14,6 +16,8 @@ const createComments = (commentsData) => commentsData.map((properties) => {
 
 const renderComments = (commentsData) => {
   container.replaceChildren(...createComments(commentsData));
+  shownCounter.textContent = commentsData.length;
+  totalCounter.textContent = commentsData.length;
 };
 
 export {renderComments};
