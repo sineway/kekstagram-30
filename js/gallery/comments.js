@@ -22,6 +22,7 @@ const renderComments = (commentsData) => {
     container.append(...createComments(data.splice(0, 5)));
     shownCounter.textContent = commentsData.length - data.length;
     totalCounter.textContent = commentsData.length;
+    loaderButton.classList.toggle('hidden', !data.length);
   };
 
   container.replaceChildren();
