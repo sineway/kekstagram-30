@@ -20,6 +20,7 @@ const data = [];
 const onLoaderButtonClick = () => {
   container.append(...createComments(data.splice(0, 5)));
   shownCounter.textContent = container.childElementCount;
+  loaderButton.classList.toggle('hidden', !data.length);
 };
 
 const renderComments = (commentsData) => {
