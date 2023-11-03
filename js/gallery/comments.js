@@ -20,12 +20,11 @@ const renderComments = (commentsData) => {
 
   const onLoaderButtonClick = () => {
     container.append(...createComments(data.splice(0, 5)));
+    shownCounter.textContent = commentsData.length - data.length;
+    totalCounter.textContent = commentsData.length;
   };
 
   container.replaceChildren();
-  shownCounter.textContent = commentsData.length;
-  totalCounter.textContent = commentsData.length;
-
   loaderButton.addEventListener('click', onLoaderButtonClick);
   loaderButton.click();
 
