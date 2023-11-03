@@ -15,7 +15,10 @@ const createComments = (commentsData) => commentsData.map((properties) => {
   return comment;
 });
 
+const data = [];
+
 const renderComments = (commentsData) => {
+  data.splice(0, Infinity, ...commentsData);
   container.replaceChildren(...createComments(commentsData));
   shownCounter.textContent = commentsData.length;
   totalCounter.textContent = commentsData.length;
