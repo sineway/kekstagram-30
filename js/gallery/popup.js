@@ -20,6 +20,7 @@ const hidePopup = () => {
   popup.classList.add('hidden');
   document.body.classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentKeydown);
+  document.dispatchEvent(new CustomEvent('popupHide'));
 };
 
 const renderPopup = ({url, description, likes, comments}) => {

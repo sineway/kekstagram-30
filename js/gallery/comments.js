@@ -16,10 +16,22 @@ const createComments = (commentsData) => commentsData.map((properties) => {
 });
 
 const renderComments = (commentsData) => {
-  container.replaceChildren(...createComments(commentsData));
+  const data = [...commentsData];
+
+  const onLoaderButtonClick = () => {
+    container.append(...createComments(data.splice(0, 5)));
+  };
+
+  container.replaceChildren();
   shownCounter.textContent = commentsData.length;
   totalCounter.textContent = commentsData.length;
-  loaderButton.classList.add('hidden');
+
+  loaderButton.addEventListener('click', onLoaderButtonClick);
+  loaderButton.click();
+
+  document.addEventListener('popupHide', () => {
+    loaderButton.removeEventListener('click', onLoaderButtonClick);
+  }, {once: true});
 };
 
 export {renderComments};
