@@ -36,5 +36,6 @@ pristine.addValidator(form.description, (text) => {
 }, 'Слишком длинное описание', 1, true);
 
 const checkValidity = () => pristine.validate();
+const resetValidity = () => pristine.reset();
 
-export {checkValidity};
+export {checkValidity, resetValidity};
