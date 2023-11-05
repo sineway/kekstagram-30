@@ -24,3 +24,8 @@ pristine.addValidator(form.hashtags, (text) => {
   const maxHashtags = 5;
   return split(text).length <= maxHashtags;
 }, 'Слишком много хэш-тегов', 1, true);
+
+pristine.addValidator(form.hashtags, (text) => {
+  const maxHashtagLength = 20;
+  return split(text).every((word) => word.length <= maxHashtagLength);
+}, 'Слишком длинный хэш-тег', 1, true);
