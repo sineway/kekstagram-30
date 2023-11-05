@@ -14,3 +14,8 @@ pristine.addValidator(form.hashtags, (text) => {
   const hashtagPattern = /^#[a-zа-яё0-9]+$/i;
   return split(text).every((word) => hashtagPattern.test(word));
 }, 'Невалидный хэш-тег', 1, true);
+
+pristine.addValidator(form.hashtags, (text) => {
+  const words = split(text.toLowerCase());
+  return words.length === new Set(words).size;
+}, 'Повторяющийся хэш-тег', 1, true);
