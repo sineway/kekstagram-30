@@ -19,3 +19,8 @@ pristine.addValidator(form.hashtags, (text) => {
   const words = split(text.toLowerCase());
   return words.length === new Set(words).size;
 }, 'Повторяющийся хэш-тег', 1, true);
+
+pristine.addValidator(form.hashtags, (text) => {
+  const maxHashtags = 5;
+  return split(text).length <= maxHashtags;
+}, 'Слишком много хэш-тегов', 1, true);
