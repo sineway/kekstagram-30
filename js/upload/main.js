@@ -1,5 +1,5 @@
 import {showPopup} from './popup.js';
-import {getScale} from './scale.js';
+import {getScale, resetScale} from './scale.js';
 import {checkValidity, resetValidity} from './validation.js';
 
 const form = document.querySelector('.img-upload__form');
@@ -23,5 +23,6 @@ form.addEventListener('submit', (event) => {
 });
 
 form.addEventListener('reset', () => {
+  resetScale();
   resetValidity();
 });

@@ -7,10 +7,11 @@ const setScale = (value) => {
   display.dispatchEvent(new Event('change', {bubbles: true}));
 };
 const getScale = () => Number.parseFloat(display.value);
+const resetScale = () => setScale(100);
 const scaleDown = () => setScale(getScale() - 25);
 const scaleUp = () => setScale(getScale() + 25);
 
 scaleDownButton.addEventListener('click', () => scaleDown());
 scaleUpButton.addEventListener('click', () => scaleUp());
 
-export {getScale};
+export {getScale, resetScale};
