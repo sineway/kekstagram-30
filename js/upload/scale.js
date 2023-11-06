@@ -1,15 +1,16 @@
 const [scaleDownButton, display, scaleUpButton] = document.querySelectorAll('.scale__control');
+const config = {min: 25, max: 100, step: 25, defaultValue: 100};
 
 const setScale = (value) => {
-  value = Math.max(value, 25);
-  value = Math.min(value, 100);
+  value = Math.max(value, config.min);
+  value = Math.min(value, config.max);
   display.value = `${value}%`;
   display.dispatchEvent(new Event('change', {bubbles: true}));
 };
 const getScale = () => Number.parseFloat(display.value);
-const resetScale = () => setScale(100);
-const scaleDown = () => setScale(getScale() - 25);
-const scaleUp = () => setScale(getScale() + 25);
+const resetScale = () => setScale(config.defaultValue);
+const scaleDown = () => setScale(getScale() - config.step);
+const scaleUp = () => setScale(getScale() + config.step);
 
 scaleDownButton.addEventListener('click', () => scaleDown());
 scaleUpButton.addEventListener('click', () => scaleUp());
