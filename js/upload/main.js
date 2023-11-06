@@ -1,6 +1,6 @@
 import {showPopup} from './popup.js';
 import {getScale, resetScale} from './scale.js';
-import {setEffect} from './effects.js';
+import {setEffect, getEffectValue} from './effects.js';
 import {checkValidity, resetValidity} from './validation.js';
 
 const form = document.querySelector('.img-upload__form');
@@ -13,6 +13,9 @@ form.addEventListener('change', (event) => {
       break;
     case 'scale':
       preview.style.transform = `scale(${getScale() / 100})`;
+      break;
+    case 'effect-level':
+      preview.style.filter = getEffectValue();
       break;
     case 'effect':
       setEffect(event.target.value);

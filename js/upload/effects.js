@@ -31,11 +31,18 @@ const createOptions = (type) => {
   };
 };
 
+const level = document.querySelector('.effect-level__value');
 const placeholder = document.querySelector('.effect-level__slider');
 const slider = noUiSlider.create(placeholder, createOptions('none'));
 
 const setEffect = (type) => {
   slider.updateOptions(createOptions(type));
 };
+const getEffectValue = () => slider.get();
 
-export {setEffect};
+slider.on('update', () => {
+  level.value = slider.get(true);
+  level.dispatchEvent(new Event('change', {bubbles: true}));
+});
+
+export {setEffect, getEffectValue};
