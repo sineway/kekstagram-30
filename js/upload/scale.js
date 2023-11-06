@@ -1,6 +1,8 @@
 const [scaleDownButton, display, scaleUpButton] = document.querySelectorAll('.scale__control');
 
 const setScale = (value) => {
+  value = Math.max(value, 25);
+  value = Math.min(value, 100);
   display.value = `${value}%`;
 };
 const getScale = () => Number.parseFloat(display.value);
