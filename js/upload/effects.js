@@ -32,4 +32,10 @@ const createOptions = (type) => {
 };
 
 const placeholder = document.querySelector('.effect-level__slider');
-noUiSlider.create(placeholder, createOptions('marvin'));
+const slider = noUiSlider.create(placeholder, createOptions('none'));
+
+const setEffect = (type) => {
+  slider.updateOptions(createOptions(type));
+};
+
+export {setEffect};
