@@ -31,11 +31,13 @@ const createOptions = (type) => {
   };
 };
 
+const container = document.querySelector('.effect-level');
 const level = document.querySelector('.effect-level__value');
 const placeholder = document.querySelector('.effect-level__slider');
 const slider = noUiSlider.create(placeholder, createOptions('none'));
 
 const setEffect = (type) => {
+  container.classList.toggle('hidden', type === 'none');
   slider.updateOptions(createOptions(type));
 };
 const getEffectValue = () => slider.get();
