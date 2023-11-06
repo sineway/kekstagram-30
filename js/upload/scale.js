@@ -4,5 +4,7 @@ const setScale = (value) => {
   display.value = `${value}%`;
 };
 const getScale = () => Number.parseFloat(display.value);
+const scaleDown = () => setScale(getScale() - 25);
+const scaleUp = () => setScale(getScale() + 25);
 
-export {setScale, getScale};
+export {scaleDown, scaleUp};
