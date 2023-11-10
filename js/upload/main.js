@@ -24,8 +24,9 @@ form.addEventListener('change', (event) => {
 });
 
 form.addEventListener('submit', (event) => {
-  if (!checkValidity()) {
-    event.preventDefault();
+  event.preventDefault();
+  if (checkValidity()) {
+    new FormData(form);
   }
 });
 
