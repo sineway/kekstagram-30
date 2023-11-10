@@ -5,6 +5,12 @@ import {checkValidity, resetValidity} from './validation.js';
 
 const form = document.querySelector('.img-upload__form');
 const preview = document.querySelector('.img-upload__preview img');
+const submitButton = document.querySelector('.img-upload__submit');
+
+const setSubmitDisabled = (flag) => {
+  submitButton.disabled = flag;
+  submitButton.textContent = flag ? 'Публикую...' : 'Опубликовать';
+};
 
 form.addEventListener('change', (event) => {
   switch (event.target.name) {
@@ -35,3 +41,5 @@ form.addEventListener('reset', () => {
   resetEffect();
   resetValidity();
 });
+
+export {setSubmitDisabled};
