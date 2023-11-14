@@ -6,6 +6,14 @@ const renderGallery = (picturesData) => {
   renderFilters();
   renderThumbnails(picturesData);
 
+  document.addEventListener('filterSelect', (event) => {
+    switch (event.detail) {
+      case 'filter-default':
+        renderThumbnails(picturesData);
+        break;
+    }
+  });
+
   document.addEventListener('thumbnailSelect', (event) => {
     renderPopup(event.detail);
   });
