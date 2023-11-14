@@ -3,4 +3,9 @@ const applyRandomFilter = (picturesData, itemLimit = 10) => {
   return picturesData.toSorted(compare).slice(0, itemLimit);
 };
 
-export {applyRandomFilter};
+const applyDiscussedFilter = (picturesData) => {
+  const compare = (a, b) => b.comments.length - a.comments.length;
+  return picturesData.toSorted(compare);
+};
+
+export {applyRandomFilter, applyDiscussedFilter};
