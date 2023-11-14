@@ -7,4 +7,12 @@ const request = async (url, options) => {
   return response.json();
 };
 
-export {request};
+const debounce = (callback, timeoutDelay = 500) => {
+  let timeoutId;
+  return (...rest) => {
+    window.clearTimeout(timeoutId);
+    timeoutId = window.setTimeout(() => callback(...rest), timeoutDelay);
+  };
+};
+
+export {request, debounce};
