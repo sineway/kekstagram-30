@@ -9,7 +9,9 @@ const thumbnails = document.querySelectorAll('.effects__preview');
 const submitButton = document.querySelector('.img-upload__submit');
 
 const renderFile = (file) => {
-  preview.src = URL.createObjectURL(file);
+  if (file.type.startsWith('image')) {
+    preview.src = URL.createObjectURL(file);
+  }
   thumbnails.forEach((thumbnail) => {
     thumbnail.style.backgroundImage = `url(${preview.src})`;
   });
