@@ -6,8 +6,15 @@ const selectFilter = (id) => {
   });
 };
 
-const renderFilters = () => {
-  container.classList.remove('img-filters--inactive');
+const onContainerClick = (event) => {
+  if (event.target.matches('.img-filters__button')) {
+    selectFilter(event.target.id);
+  }
 };
 
-export {renderFilters, selectFilter};
+const renderFilters = () => {
+  container.classList.remove('img-filters--inactive');
+  container.addEventListener('click', onContainerClick);
+};
+
+export {renderFilters};
